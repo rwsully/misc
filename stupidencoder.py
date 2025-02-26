@@ -69,11 +69,22 @@ def custom_decoder(encoded_text):
     
     return ''.join(result)
 
-# Test the encoder and decoder with a string
-input_text = "Hello, World! 123"
-encoded_text = custom_encoder(input_text)
-decoded_text = custom_decoder(encoded_text)
+def main():
+    while True:
+        choice = input("Do you want to (e)ncode or (d)ecode a message? (q to quit): ").lower()
+        if choice == 'q':
+            break
+        elif choice == 'e':
+            user_input = input("Enter the text to encode: ")
+            encoded_text = custom_encoder(user_input)
+            print("Encoded text:", encoded_text)
+        elif choice == 'd':
+            user_input = input("Enter the text to decode: ")
+            decoded_text = custom_decoder(user_input)
+            print("Decoded text:", decoded_text)
+        else:
+            print("Invalid choice. Please enter 'e' to encode, 'd' to decode, or 'q' to quit.")
 
-print("Original:", input_text)
-print("Encoded:", encoded_text)
-print("Decoded:", decoded_text)
+if __name__ == "__main__":
+    main()
+
