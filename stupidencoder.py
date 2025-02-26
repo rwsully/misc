@@ -1,5 +1,6 @@
 #This is for the nerds out there, recently have been watching a few spy movies and found it very intresting how they would encrypt messages.
 #Decided to give it a crack myself, I have tried to explain the code as best as i could, i don't work with python usally so this was a learning experience for me.
+#There are still issues with the decoder, it is not working at the moment.
 
 import random
 
