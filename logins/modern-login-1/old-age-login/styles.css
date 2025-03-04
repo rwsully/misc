@@ -1,0 +1,311 @@
+/* Base Theme Variables */
+:root {
+    --sky-color: #87CEEB;
+    --castle-color: #8B4513;
+    --border-color: #654321;
+    --gate-color: #654321;
+    --flag-color: #8B0000;
+    --ground-color: #228B22;
+    --text-color: #3a2618;
+    --button-text: #f4d03f;
+    --form-bg: rgba(255, 255, 255, 0.9);
+}
+
+/* Dark Theme Variables */
+[data-theme="dark"] {
+    --sky-color: #0A2342;
+    --castle-color: #4B3621;
+    --border-color: #3E2A1A;
+    --gate-color: #3E2A1A;
+    --ground-color: #1a472a;
+    --flag-color: #4a0404;
+    --text-color: #d4b16a;
+    --button-text: #ffd700;
+    --form-bg: rgba(20, 20, 30, 0.9);
+}
+
+/* Base Styles */
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'MedievalSharp', cursive;
+    background: var(--sky-color);
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.5s ease;
+}
+
+/* Castle Background */
+.castle-bg {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+}
+
+/* Ground */
+.ground {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 30vh;
+    background-color: var(--ground-color);
+    transition: background-color 0.5s ease;
+}
+
+/* Main Castle */
+.castle {
+    position: absolute;
+    bottom: 30vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 200px;
+    background-color: var(--castle-color);
+    border: 5px solid var(--border-color);
+    border-radius: 10px;
+    transition: all 0.5s ease;
+}
+
+/* Castle Towers */
+.tower {
+    position: absolute;
+    width: 50px;
+    height: 150px;
+    background-color: var(--castle-color);
+    border: 5px solid var(--border-color);
+    border-radius: 10px;
+    transition: all 0.5s ease;
+}
+
+.tower.left {
+    left: -30px;
+    bottom: -5px;
+}
+
+.tower.right {
+    right: -30px;
+    bottom: -5px;
+}
+
+.tower::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 30px;
+    background-color: var(--castle-color);
+    border: 5px solid var(--border-color);
+    border-radius: 50%;
+    transition: all 0.5s ease;
+}
+
+/* Castle Gate */
+.gate {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 100px;
+    background-color: var(--gate-color);
+    border: 5px solid var(--castle-color);
+    border-radius: 40px 40px 0 0;
+    transition: all 0.5s ease;
+}
+
+.gate::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 80px;
+    background-color: var(--castle-color);
+    border-radius: 30px 30px 0 0;
+    transition: all 0.5s ease;
+}
+
+/* Castle Flag */
+.flag {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 40px solid var(--flag-color);
+    transition: all 0.5s ease;
+}
+
+.flag::before {
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: -5px;
+    width: 10px;
+    height: 50px;
+    background-color: var(--border-color);
+    transition: background-color 0.5s ease;
+}
+
+/* Theme Switch Button */
+.theme-switch {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    background: var(--castle-color);
+    padding: 10px 20px;
+    border-radius: 20px;
+    color: var(--button-text);
+    border: 2px solid var(--border-color);
+    font-family: 'MedievalSharp', cursive;
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+
+.theme-switch:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Login Container */
+.login-container {
+    background: var(--form-bg);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    border: 5px solid var(--border-color);
+    max-width: 400px;
+    width: 90%;
+    position: relative;
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+.login-container::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    right: -15px;
+    bottom: -15px;
+    border: 2px solid var(--border-color);
+    z-index: -1;
+    border-radius: 15px;
+}
+
+/* Form Elements */
+h2 {
+    text-align: center;
+    color: var(--text-color);
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.input-group {
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-color);
+    font-size: 1.2em;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--border-color);
+    background-color: var(--form-bg);
+    border-radius: 5px;
+    font-family: 'MedievalSharp', cursive;
+    font-size: 1em;
+    color: var(--text-color);
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    background: var(--castle-color);
+    border: 2px solid var(--border-color);
+    color: var(--button-text);
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: 'MedievalSharp', cursive;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    background: var(--gate-color);
+}
+
+/* Stars */
+.stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70vh;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+[data-theme="dark"] .stars {
+    opacity: 1;
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background-color: white;
+    border-radius: 50%;
+    animation: twinkle 1.5s infinite alternate;
+}
+
+@keyframes twinkle {
+    from { opacity: 0.2; }
+    to { opacity: 1; }
+}
+
+/* Celestial Body (Sun/Moon) */
+.celestial {
+    position: absolute;
+    top: 50px;
+    right: 100px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    transition: all 0.5s ease;
+}
+
+[data-theme="light"] .celestial {
+    background: #FFD700;
+    box-shadow: 0 0 50px #FFD700;
+}
+
+[data-theme="dark"] .celestial {
+    background: #F4F4F4;
+    box-shadow: 0 0 50px rgba(244, 244, 244, 0.5);
+}

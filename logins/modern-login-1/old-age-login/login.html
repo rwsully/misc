@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medieval Login Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body data-theme="light">
+    <div class="castle-bg">
+        <div class="stars" id="stars"></div>
+        <div class="celestial"></div>
+        <div class="castle">
+            <div class="tower left"></div>
+            <div class="tower right"></div>
+            <div class="gate"></div>
+            <div class="flag"></div>
+        </div>
+        <div class="ground"></div>
+    </div>
+
+    <button class="theme-switch">🌙 Night Falls</button>
+    
+    <div class="login-container">
+        <div class="decorative-border top-left"></div>
+        <div class="decorative-border top-right"></div>
+        <div class="decorative-border bottom-left"></div>
+        <div class="decorative-border bottom-right"></div>
+        
+        <h2>Kingdom Access</h2>
+        <form>
+            <div class="input-group">
+                <label for="username">Thy Name</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Secret Word</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Enter the Realm</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
